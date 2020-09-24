@@ -12,4 +12,5 @@ Anyone can contiribute to this repositry
 <li>Pick up an algortihm</li>
 <li>Write your code</li>
 <li>Create a pull request</li>
+<li>Star the repository to show your support</li>
 </ul>
