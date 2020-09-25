@@ -19,7 +19,7 @@ int main(){
 	}
 	
 	// Selection Sort
-	for(i = 0; i< N; i++){
+	for(i = 0; i < N; i++){
 		min_idx = i;
 		for(j = i + 1; j < N; j++){
 			if(a[j] < a[min_idx])
