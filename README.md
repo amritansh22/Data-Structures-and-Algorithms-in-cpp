@@ -8,7 +8,7 @@ Anyone can contiribute to this repositry
 
 ## How to contribute
 <ul>
-<li>Fork this repsoditry</li>
+<li>Fork this repository</li>
 <li>Pick up an algortihm</li>
 <li>Write your code</li>
 <li>Create a pull request</li>
