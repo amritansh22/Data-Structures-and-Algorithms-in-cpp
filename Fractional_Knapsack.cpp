@@ -32,6 +32,10 @@ int fractionalKnapsack(Item items[],int n,int W){
 
 }
 
+// Since the name is knapsack, we may think that it is a DP problem,
+// but with some observation it can be noted that it is actually a greedy problem 
+// where we choose the item with the highest ratio of item:weight or we choose the most valuable item
+
 int main(){
     int W = 50;
     int value[]={60,100,120};
