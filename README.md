@@ -2,7 +2,7 @@
 This repository is in development phase and will soon provide you with c++ code of various data structures and algorithms
 
 ## Who can contribute
-Anyone can contiribute to this repositry
+Anyone can contribute to this repositry.
 
 # Contribution Guide
 
