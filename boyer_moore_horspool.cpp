@@ -1,3 +1,8 @@
+// Compile Time Evaluated Boyer Moore Horspool String Search Algorithm
+// Author: David Kanekanian
+//
+// Requires C++17.
+
 #include <string_view>  // std::string_view
 #include <optional>  // std::optional
 #include <array>  // std::array
@@ -19,7 +24,6 @@ struct SearchPattern {
             bad_char_table[i] = needle.length();
         }
 
-
         // Rule 2
         // Characters in the needle except last character jump:
         // length of needle - last position of character - 1
@@ -30,7 +34,9 @@ struct SearchPattern {
 };
 
 /** Returns index of first occurrance of pattern in haystack. */
-constexpr std::optional<std::size_t> boyer_moore_horspool(SearchPattern pattern, std::string_view haystack) {
+[[nodiscard]] constexpr std::optional<std::size_t> boyer_moore_horspool (
+    const SearchPattern& pattern,
+    const std::string_view haystack) noexcept {
     for (std::size_t h = 0; h < haystack.length() - pattern.needle.length() + 1;) {
         // Search this placement of the needle.
         bool found = true;
@@ -63,8 +69,8 @@ int main() {
     static_assert(index == 3, "index is supposed to be 3!");
 
     if (index) {
-        std::cout << "found at index " << index.value() << '\n' << std::flush;
+        std::cout << "found at index " << index.value() << '\n';
     } else {
-        std::cout << "not found" << std::endl;
+        std::cout << "not found" << '\n';
     }
 }
