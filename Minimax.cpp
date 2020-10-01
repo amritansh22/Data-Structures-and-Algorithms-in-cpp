@@ -30,7 +30,7 @@ int minimax(int depth, int nodeIndex, bool isMax,
             minimax(depth+1, nodeIndex*2 + 1, true, scores, h)); 
 } 
   
-// A utility function to find Log n in base 2 
+// function to find Log n in base 2 
 int log2(int n) 
 { 
   return (n==1)? 0 : 1 + log2(n/2); 
@@ -39,9 +39,19 @@ int log2(int n)
 int main() 
 { 
     // The number of elements in scores must be 
-    // a power of 2. 
-    int scores[] = {3, 5, 2, 9, 12, 5, 23, 23}; 
-    int n = sizeof(scores)/sizeof(scores[0]); 
+    // a power of 2.
+    int n,i,j; 
+    cout<<"Enter size of array(Must be in powers of 2)";
+    cin>>n;
+    if(n%2==1)
+    {
+        cout<<"Invalid size";
+        return 0;
+    }
+    int scores[n];
+    cout<<"Enter scores:";
+    for(i=0;i<n;i++)
+    cin>>scores[i];
     int h = log2(n); 
     int res = minimax(0, 0, true, scores, h); 
     cout << "The optimal value is : " << res << endl; 
