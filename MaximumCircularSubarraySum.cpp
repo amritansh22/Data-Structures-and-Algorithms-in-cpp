@@ -12,7 +12,17 @@ int kadane(int a[], int n) {
   }
   return highest;
 }
-
-int main() {
-  return 0;
+//  function returns maximum
+// circular contiguous sum in a[]
+int maxCircularSum(int a[], int n) {
+  int max = kadane(a, n);
+  int wrap = 0, i;
+  for (i = 0; i < n; i++) {
+    wrap += a[i];
+    a[i] = -a[i];
+  }
+  wrap = wrap + kadane(a, n);
+  return (wrap > max) ? wrap : max;
 }
+
+int main() { return 0; }
