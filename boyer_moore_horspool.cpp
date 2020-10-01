@@ -29,7 +29,7 @@ struct SearchPattern {
 std::optional<std::size_t> boyer_moore_horspool(SearchPattern pattern, std::string_view haystack) {
     for (std::size_t h = 0; h < haystack.length() - pattern.needle.length() + 1;) {
         // Search this placement of the needle.
-        bool found = false;
+        bool found = true;
         for (std::size_t n = pattern.needle.length() - 1; ; n--) {
             // Check the needle in reverse.
             if (haystack[h + n] != pattern.needle[n]) {
