@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void bucketsort(float arr[],int n)
+{
+	vector<float> A[n]; //create an empty bucket
+	for(int i=0 ; i<n; i++)
+	{
+		int pos = n*arr[i]; //inserting all elements to their correct position in the created bucket
+		A[pos].push_back(arr[i]);
+	}
+
+    for(int i=0;i<n;i++)
+      sort(A[i].begin(),A[i].end()); //individually sorting all buckets
+    
+    int index=0;     //insert all the elements back to the arr[]
+    for(int i=0 ; i<n ; i++)
+      for(int j=0;j<A[i].size();j++)
+       arr[index++]= A[i][j];
+
+}
+void display(float arr[],int n)
+{
+	cout<<"sorted array is"<<endl;
+	for(int i=0;i<n;i++)
+	cout<<arr[i]<<" ";
+}
+int main()
+{
+	float arr[]={0.78,0.17,0.38,0.27,0.71,0.99,0.22,0.18,0.29,0.61,0.33};
+	int n = sizeof(arr)/ sizeof(arr[0]);
+	bucketsort(arr,n);
+	display(arr,n);
+
+return 0;
+}
