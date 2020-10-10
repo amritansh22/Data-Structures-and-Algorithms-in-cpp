@@ -7,9 +7,9 @@
  {
    int n;
    int sum=0;
- cout<<"enter the number you wan tot check"<<endl;
+   cout << "enter the number you wan tot check" << endl;
  cin>>n;
- for (int i=0 ; i<n ; i++)
+ for (int i=1 ; i<n ; i++)
  {
      if (n%i==0)
      {sum+=i;}
