@@ -12,9 +12,8 @@ int FindKthLargest(vector<int> const &A, int k)
 	priority_queue<int, vector<int>> pq(less<int>(), A);
 
 	// pop from max-heap exactly (k-1) times
-	while (--k) {
+	while (--k) 
 		pq.pop();
-	}
 
 	// return the root of max-heap
 	return pq.top();
@@ -32,4 +31,4 @@ int main()
 	return 0;
 }
 
-//output K'th largest element in the array is 7
+//Output - K'th largest element in the array is 7
