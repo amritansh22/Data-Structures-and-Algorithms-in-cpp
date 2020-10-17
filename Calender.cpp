@@ -1,4 +1,4 @@
-[14:54, 10/1/2020] Sanvi College: #include<iostream.h>
+ #include<iostream.h>
 #include<conio.h>
 #include<math.h>
 void main()
