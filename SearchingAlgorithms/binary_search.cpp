@@ -24,7 +24,7 @@ void bsearch(int a[],int n,int key)
       start = mid+1;
   }
   if(found)
-  cout<<key<<" found at index "<<mid<<endl;
+  cout<<key<<" found at index "<<mid+1<<endl;
   else
   cout<<key<<" not found\n";
 }
