@@ -1,4 +1,3 @@
-// Two_Sum in O(n)
 /*
 	Given an array of integers and an integer target,
 	return indices(zero indexed) of the two numbers if exists such that they sum adds up to target.
@@ -8,23 +7,17 @@ using namespace std;
 
 vector<int> Two_Sum(vector<int> &arr, int target) {
 
-	unordered_map<int,int> mpi;
-	for(int i=0;i < arr.size(); ++i)
-		mpi[arr[i]]=i;
+	std::unordered_map<int,int> mp;
 
+	for(int i=0;i<arr.size();i++){
 
-	for(int i=0; i< arr.size(); ++i){
-		if(target  == 2*arr[i]){     // for the case when target is equal to sum of two repeating elements
-			if(mpi[arr[i]] != i)       // like arr = {2,3,2}, target = 4
-			return {i,mpi[arr[i]]};
-		}
-		else {
-			if(mpi.find(target-arr[i]) != mpi.end())  //check if target - given element is present in hashmap
-			return {i,mpi[target-arr[i]]};
-		}
-	}
+	if(mp.find(target-arr[i])!=mp.end())
+		return {mp[target-arr[i]],i};
 
-	return {-1,-1};
+	mp[arr[i]]=i;
+}
+
+return {-1,-1};
 }
 
 int main()
