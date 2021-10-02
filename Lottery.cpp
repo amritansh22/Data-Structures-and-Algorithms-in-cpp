@@ -14,9 +14,7 @@ int main()
         string input;
         cout << "Enter number: ";
         cin >> input;
-
         char number = input[0];
-
         cout << endl;
         int integerNumber = (int)number - 48;
         if (input == "10")
@@ -30,8 +28,6 @@ int main()
         }
         else
         {
-           
-
             int random = (rand() % 10) + 1;
             if (integerNumber == random)
             {
@@ -73,6 +69,5 @@ int main()
             }
         }
     }
-
     return 0;
 }
