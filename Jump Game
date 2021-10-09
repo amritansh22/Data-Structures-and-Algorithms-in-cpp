@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int e=nums.size()-1;//end i.e. where we want to reach
+        for(int i=nums.size()-2;i>=0;i--){    //travelling back from end to see if we can reach end from the prev location
+            if(i+nums[i]>=e){
+                e=i; //updating end point i.e. if we can reach end from this point then this is our new end
+            }
+        }       
+        if(e==0){ //if our end coincide with start it means we can reach our end from start 
+            return true;
+        }
+        else {
+            return false;
+        }        
+    }
+};
