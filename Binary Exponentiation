@@ -1,0 +1,14 @@
+//Binary Exponentiation
+    long long power(long long a, long long b, long long mod = 1e9 + 7){
+        a = a % mod;
+        long long ans = 1;
+        while(b){
+            if(b & 1)
+                ans = (ans * a) % mod;
+            
+            a = a % mod;
+            a = (a * a) % mod;
+            b = b / 2;
+        }
+        return ans;
+    }

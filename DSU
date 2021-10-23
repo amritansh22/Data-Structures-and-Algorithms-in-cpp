@@ -1,0 +1,44 @@
+
+//DSU Disjint Set Union
+struct DSU
+{
+    int connected;
+    vector<int> sz;
+    vector<int> parent;
+
+    void init(int n)
+    {
+        parent = sz = vector<int>(n+1);
+        for(int i=1; i<=n; i++)
+            parent[i]=i, sz[i]=1;
+        connected = n;
+    }
+
+    int getParent (int n)
+    {
+        if(n == parent[n])
+            return n;
+        parent[n] = getParent(parent[n]);
+        return parent[n];
+    }
+
+    int getSize(int u)
+    {
+        return sz[getParent(u)];
+    }
+
+    void merge (int a, int b)
+    {
+        int x = getParent(a);
+        int y = getParent(b);
+        if(x != y)
+        {
+            connected--;
+            if (sz[x] < sz[y])
+            swap(x,y);
+
+            sz[x] += sz[y];
+            parent[y] = parent[x];
+        }
+    }
+};
