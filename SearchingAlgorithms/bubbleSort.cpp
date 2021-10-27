@@ -2,6 +2,8 @@
 #include<string>
 using namespace std;
 
+//Function comparing two values in an array, returns true if found, false if not
+//Algorithm similar to basic bubble sort concept
     template <class T>
     bool bubbleSort(T a[], int size){
 
