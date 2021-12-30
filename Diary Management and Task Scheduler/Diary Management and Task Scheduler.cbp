@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Diary Management and Task Scheduler" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Diary Management and Task Scheduler" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Diary Management and Task Scheduler" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="admin.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="admin.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="login.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="login.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="main.cpp" />
+		<Unit filename="user.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="user.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="user_diary.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="user_diary.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="user_task.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="user_task.h">
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

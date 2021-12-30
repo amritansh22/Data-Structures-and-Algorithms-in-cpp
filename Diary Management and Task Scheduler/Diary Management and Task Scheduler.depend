@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1603435067 source:d:\dsa_proj\diary management and task scheduler\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+	<fstream>
+	"admin.h"
+	"user.h"
+	"login.h"
+
+1600942782 d:\dsa_proj\diary management and task scheduler\admin.h
+
+1600942786 d:\dsa_proj\diary management and task scheduler\user.h
+
+1600940836 source:d:\c\dsa_proj.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+
+1603435144 source:d:\dsa_proj\diary management and task scheduler\admin.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+	"admin.h"
+	"login.h"
+
+1600949056 d:\dsa_proj\diary management and task scheduler\login.h
+
+1603438508 source:d:\dsa_proj\diary management and task scheduler\user.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+	"user.h"
+	"login.h"
+	"user_diary.h"
+	"user_task.h"
+
+1603434585 source:d:\dsa_proj\diary management and task scheduler\login.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+	<fstream>
+	"admin.h"
+	"user.h"
+
+1601198808 d:\dsa_proj\diary management and task scheduler\user_diary.h
+
+1601198784 d:\dsa_proj\diary management and task scheduler\user_task.h
+
+1603637642 source:d:\dsa_proj\diary management and task scheduler\user_diary.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<bits/stdc++.h>
+	<string.h>
+	<fstream>
+	"user.h"
+	"login.h"
+	"user_diary.h"
+
+1603640964 source:d:\dsa_proj\diary management and task scheduler\user_task.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<fstream>
+	"user.h"
+	"login.h"
+	"user_task.h"
+
