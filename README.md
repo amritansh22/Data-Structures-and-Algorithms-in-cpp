@@ -1,27 +1,34 @@
 # Data-Structures-and-Algorithms-in-cpp
-This is very good piece of coding.
-This repository is in development phase and will soon provide you with c++ code of various data structures and algorithms
+This repository is in development phase and will soon provide you with C++ code of various data structures and algorithms.
 
-## Who can contribute
-Anyone can contribute to this repositry.
+## What is this for?
+This project is designed to be a reference for anyone needing to implement a particular data structure or algorithm into their C++ program.
 
 # Contribution Guide
 
-## How to contribute
-<ul>
-<li>Fork this repository</li>
-<li>Pick up an algortihm</li>
-<li>Write your code</li>
-<li>Create a pull request</li>
-<li>Star the repository to show your support</li>
-</ul>
+## Who can contribute?
+Anyone can contribute to this repository.
 
-## Instructions
-Create a folder for the topic you wish to contribute in and add the respective files in that particular folder.
-If a folder for a particular Data Structure or Algorithm exists. Add your codes in that folder itself.
-If a folder already exists, add your codes to it.
+## How to Contribute
+1. Fork this repository
+2. Pick up an algortihm
+3. Write your C++ code
+4. Follow the File Placement guide below
+5. Create a pull request
+6. Star the repository to show your support
 
-### Additional Notes
+## File Placement Instructions
+* Look for a folder for the topic you wish to contribute in (ex. Trees, Sorting, etc.)
+* If your particular Data Structure or Algorithm folder exists, add the relevant files there
+* If a folder does not exist, create a new one for your topic
+
+## Code Guidelines
 * Code should be properly commented so as to ensure it's readability.
 * If you've added code that should be tested, add tests as comments. 
 * Make sure your code is properly formatted.
+
+<p align="center">
+  <img src="images/Good_Documentation.png" /><br/>
+  <i style="font-size: .10em">Example of good documentation</i>
+</p>
+  
