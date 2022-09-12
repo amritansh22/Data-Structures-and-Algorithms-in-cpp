@@ -1,16 +1,8 @@
 # Data-Structures-and-Algorithms-in-cpp
 This repository is in development phase and will soon provide you with C++ code of various data structures and algorithms.
 
-# User Guide
-
 ## What is this for?
 This project is designed to be a reference for anyone needing to implement a particular data structure or algorithm into their C++ program.
-
-## How to Use
-* Find the folder with the name of your Data Structure or Algorithm
-* Browse C++ implementations of your chosen topic
-  * Your topic isn't there?
-  * Consider contributing to help fill the gaps
 
 # Contribution Guide
 
@@ -21,7 +13,7 @@ Anyone can contribute to this repository.
 1. Fork this repository
 2. Pick up an algortihm
 3. Write your C++ code
-4. Follow the <span style="color:blue">File Placement</span> guide below
+4. Follow the File Placement guide below
 5. Create a pull request
 6. Star the repository to show your support
 
