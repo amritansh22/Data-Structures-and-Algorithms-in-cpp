@@ -1,0 +1,1 @@
+ s.ghar se bahar hai kon return 0;
