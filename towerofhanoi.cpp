@@ -1,16 +1,17 @@
 #include <iostream>
 using namespace std;
 
-void ToH(int n, char A, char B, char C)
+void tower(int num, char src, char aux, char dest)
 {
-    if (n == 1)
+    if (num == 1)
     {
-        cout << "Move 1 from " << A << " to " << C << endl;
+        cout << "Move from " << src << " to " << dest << endl;
         return;
     }
-    ToH(n - 1, A, C, B);
-    cout << "Move " << n << " from " << A << " to " << C << endl;
-    ToH(n - 1, B, A, C);
+    
+    tower(num - 1, src, dest, aux); //Visualize how if we could move n-1 discs
+    tower(1, src, aux, dest);       //we would move them to aux, then one disc to dest
+    tower(num - 1, aux, src, dest); //then move the discs from aux to destination
 }
 
 int main()
@@ -19,7 +20,7 @@ int main()
     int n;
     cin >> n;
 
-    ToH(n, 'A', 'B', 'C');
+    tower(n, 'S', 'A', 'D');
 
     return 0;
 }
