@@ -1,13 +1,32 @@
-# Data-Structures-and-Algorithms-in-cpp
-This is very good piece of coding.
-This repository is in development phase and will soon provide you with c++ code of various data structures and algorithms
+# Implemenation of Data Structures and Algorithms in C++ (cpp)
 
-## Who can contribute
-Anyone can contribute to this repositry.
+This repository is in development phase and will soon provide you with C++ code of various data structures and algorithms. 
 
-# Contribution Guide
+### Current Data Structures and Algorithms :robot:
+* [Graphs](/Graph) 
+* [Incrementing Algorithms](/IncrementingAlgorithm)
+* [Searching Algoirthms](/SearchingAlgorithm)
+* [Kth Largest](/KthLargest)
+* [Sorting Algorithms](/SortingAlgorithms)
+* [Sparse Matrix](/SparseMatrix)
+* [Trees](/Trees)
+* [Palindrome](/Palindrome)
+* [Queue](/Queue)
 
-## How to contribute
+
+## Contribution Guide
+
+### Resources for data structures and algorithms fundamentals:
+
+* [Linked List Problems](https://iq.opengenus.org/list-of-linked-list-problems/)
+* [Array Problems](https://iq.opengenus.org/list-of-array-problems/)
+* [Binary Tree Problems](https://iq.opengenus.org/list-of-binary-tree-problems/)
+* [Dynamic Programming (DP) Problems](https://iq.opengenus.org/list-of-dynamic-programming-problems/)
+
+### Who can contribute
+Anyone can contribute to this repository.
+
+### How to contribute
 <ul>
 <li>Fork this repository</li>
 <li>Pick up an algortihm</li>
@@ -20,6 +39,7 @@ Anyone can contribute to this repositry.
 Create a folder for the topic you wish to contribute in and add the respective files in that particular folder.
 If a folder for a particular Data Structure or Algorithm exists. Add your codes in that folder itself.
 If a folder already exists, add your codes to it.
+
 
 ### Additional Notes
 * Code should be properly commented so as to ensure it's readability.
