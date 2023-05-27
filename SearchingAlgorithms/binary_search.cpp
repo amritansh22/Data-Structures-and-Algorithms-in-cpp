@@ -44,7 +44,7 @@ int main()
   }   
   cout<<"Enter the element to be searched:- ";
   cin>>k;
-  n = arr.size();
+  n = arr.size();  
   bsearch(arr,n,k);
   return 0; 
 }
