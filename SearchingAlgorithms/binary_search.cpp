@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
+#include <vector>
+#include <string>
 using namespace std;
-
-void bsearch(int a[],int n,int key)
+void bsearch(vector<int> a,int n,int key)
 {
-  sort(a,a+n);
+  sort(a.begin(),a.end());
   int start,end,mid;
   
   start = 0;
@@ -32,17 +33,18 @@ void bsearch(int a[],int n,int key)
 int main()
 {
   int n,k,i;
-  cout<<"Enter the number of elements in the array:- ";
-  cin>>n;
-  int arr[n];
- 
-  cout<<"Enter "<<n<<" elements\n";
-  for(i=0;i<n;++i)
-  cin>>arr[i];
-     
+  
+  vector<int>arr;
+  cout<<"Enter elements, Q to stop \n";
+  while(true){
+    string element;
+    cin >> element;
+    if(element == "Q") break;
+    arr.push_back(stoi(element));
+  }   
   cout<<"Enter the element to be searched:- ";
   cin>>k;
-  
+  n = arr.size();  
   bsearch(arr,n,k);
   return 0; 
 }
