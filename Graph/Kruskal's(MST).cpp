@@ -1,96 +1,86 @@
-//weighted undirected graph
-//greedy algorithm
-//spanning tree which connects all vertices of graph i.e v-1 edges , no cycles , subsets of edges
-//single connected edges
-#include<iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <bits/stdc++.h>
 
-class DSU{
-	int *parent;
-	int *rank;
+#define dbg(x) cerr << #x << ": " << x << endl;
+#define FOR(i, a, b) for(int i = (a); i < (b); ++i)
+#define FORD(i, a, b) for(int i = (a); i >= (b); --i)
+#define all(v) (v).begin(), (v).end()
+#define rall(v) (v).rbegin(), (v).rend()
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
 
-public:
-   DSU(int n){
-   	parent=new int[n];
-   	rank=new int[n];
+#define INF 1000000000
+#define MAXN 1000005
+#define EPS 1e-9
 
-   	//parent -1,rank 1
-   	for(int i=0;i<n;i++){
-   		parent[i]=-1;
-   		rank[i]=1;
-   	}
-   }
+typedef long long ll;
+typedef std::vector<int> vi;
+typedef std::vector<long long> vll;
+typedef std::pair<int, int> pii;
+typedef std::pair<ll, ll> pllll;
+typedef std::set<int> si;
+typedef std::set<ll> sll;
+typedef std::unordered_map<int , int> mii;
+typedef std::unordered_map<ll , ll> mllll;
+typedef std::unordered_map<char , int> mci;
+typedef std::unordered_map<char , ll> mcll;
 
-   //find function
-int find(int i){
-	if(parent[i]==-1){
-		return i;
-	}
-	//otherwise
-	return parent[i]=find(parent[i]);
+ll N;
+vll rank(MAXN), size(MAXN), parent(MAXN);
+std::vector<std::tuple<ll, ll, ll>> edges;
+
+//Helping functions
+void init() {
+    FOR(i, 0, N) {
+        parent[i] = i;
+        size[i] = 1;
+        rank[i] = 0;
+    }
 }
-   //unite (union)	
-	void unite(int x,int y){
-      int s1=find(x);
-      int s2=find(y);
 
-      if(s1!=s2){
-      	//union by rank
-      	if(rank[s1]<rank[s2]){
-      		parent[s1]=s2;
-      		rank[s2]+=rank[s1];
-      	}
-      	else
-      	{
-      		parent[s2]=s1;
-      		rank[s1]+=rank[s2];
-      	}
-      }  
-	}
+ll find(int a) {
+    if(a == parent[a]) return a;
+    return parent[a] = find(parent[a]);
+}
 
-};
- class Graph{
- 	vector<vector<int>>edgelist;
- 	int V;
- public:
- 	Graph(int V){
- 		this->V=V;
- 	}
- 	void addEdge(int x,int y,int w){
- 		edgelist.push_back({w,x,y});
- 	}
- 	int kruskal_mst(){
-        //sort all the edges
- 		sort(edgelist.begin(),edgelist.end());
- 		//init a DSU
- 		DSU s(V);
+void unite(ll a, ll b) {
+    a = find(a);
+    b = find(b);
 
- 		int ans=0;
- 		for(auto edge:edgelist){
- 			int w=edge[0];
- 			int x=edge[1];
- 			int y=edge[2];
- 			//take that edge in MST if it doesnt form a cycle
- 			if(s.find(x)!=s.find(y)){
- 				s.unite(x,y);
- 				ans+=w;
- 			}
- 		}
- 		return ans;
- 	}
- };
+    //By rank
+    if(a != b) {
+        if(rank[a] < rank[b])
+            std::swap(a, b);
+        parent[b] = a;
+        if(rank[a] == rank[b])
+            rank[a]++;
+    }
 
- int main(){
- 	Graph g(4);
- 	g.addEdge(0,1,1);
- 	g.addEdge(1,3,3);
- 	g.addEdge(3,2,4);
- 	g.addEdge(2,0,2);
- 	g.addEdge(0,3,2);
- 	g.addEdge(1,2,2);
+    //By size
+    if(a != b) {
+        if(size[a] < size[b])
+            std::swap(a, b);
+        parent[b] = a;
+        size[a] += size[b];
+    }
+}
 
- 	cout<<g.kruskal_mst()<<endl;
- 	return 0;
- }
+bool same(ll a, ll b) {
+    return find(a) == find(b);
+}
+
+//Actual Kruskal
+void kruskal() {
+    std::sort(all(edges));
+    for(auto edge : edges) {
+        ll u, v, w;
+        std::tie(w, u, v) = edge;
+        if(!same(u, v)) unite(u, v);
+    }
+}
+
+int main()
+{
+    return 0;
+}

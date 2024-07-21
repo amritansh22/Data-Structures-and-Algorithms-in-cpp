@@ -1,84 +1,62 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <bits/stdc++.h>
 
-#define f(i,x,n) for(int i=x;i<n;i++)
-#define ll long long
-#define pb(i) push_back(i)
-#define mp(i,j) make_pair(i,j)
-#define test ll t; cin>>t; while(t--)
+#define dbg(x) cerr << #x << ": " << x << endl;
+#define FOR(i, a, b) for(int i = (a); i < (b); ++i)
+#define FORD(i, a, b) for(int i = (a); i >= (b); --i)
+#define all(v) (v).begin(), (v).end()
+#define rall(v) (v).rbegin(), (v).rend()
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
 
-#define v 9
+#define INF 1000000000
+#define MAXN 1000005
+#define EPS 1e-9
 
-int minDistance(int dist[], bool visited[]) 
-{  
-    int min = INT_MAX, minIndex; 
-  
-    f(i,0,v)
-	{
-		if (visited[i]==false && dist[i]<=min) 
-		{
-			min = dist[i];
-			minIndex = i; 
-		}   
-	}
-  
-    return minIndex; 
-} 
+typedef long long ll;
+typedef std::vector<int> vi;
+typedef std::vector<long long> vll;
+typedef std::pair<int, int> pii;
+typedef std::pair<ll, ll> pllll;
+typedef std::set<int> si;
+typedef std::set<ll> sll;
+typedef std::unordered_map<int , int> mii;
+typedef std::unordered_map<ll , ll> mllll;
+typedef std::unordered_map<char , int> mci;
+typedef std::unordered_map<char , ll> mcll;
 
-void print(int dist[]) 
-{ 
-    cout<<"Vertex \t\t Distance from Source"<<endl; 
-    
-    f(i,0,v)
-    {
-    	cout<<i<<"\t\t "<<dist[i]<<endl;
-	}
-} 
+ll N;
+bool vis[MAXN];
+vll dist(MAXN);
+std::vector<pllll> adj_dijkstra[MAXN]; //{v, w}
 
-void dijsktra(int g[][v], int s)
-{
-	int dist[v];
-	bool visited[v];
-	
-	f(i,0,v)
-	{
-		dist[i] = INT_MAX;
-		visited[i] = false;	
-	} 
-	
-	dist[s] = 0;
-	
-	f(i,0,v-1)
-	{
-		int u = minDistance(dist,visited);
-		visited[u] = true;
-		
-		f(j,0,v)
-		{
-			if (!visited[j] && g[u][j] && dist[u]!=INT_MAX && dist[u]+g[u][j]<dist[j])
-			{
-				dist[j] = dist[u] + g[u][j]; 
-			}    
-		}
-	}
-	
-	print(dist);
+void dijkstra(int s) {
+    FOR(i, 0, N) {
+        dist[i] = INF;
+        vis[i] = false;
+    }
+    std::priority_queue<pllll> q; //{w, v}
+    dist[s] = 0;
+    q.push({0, s});
+    while(!q.empty()) {
+        ll u = q.top().se; q.pop();
+        if(vis[u]) continue;
+        vis[u] = true;
+        for(auto pr : adj_dijkstra[u]) {
+            ll v, w;
+            std::tie(v, w) = pr;
+            if(vis[v]) continue;
+
+            if(dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                q.push({-dist[v], v});
+            }
+        }
+    }
 }
 
 int main()
 {
-    int g[v][v] = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 }, 
-                   { 4, 0, 8, 0, 0, 0, 0, 11, 0 }, 
-                   { 0, 8, 0, 7, 0, 4, 0, 0, 2 }, 
-                   { 0, 0, 7, 0, 9, 14, 0, 0, 0 }, 
-                   { 0, 0, 0, 9, 0, 10, 0, 0, 0 }, 
-                   { 0, 0, 4, 14, 10, 0, 2, 0, 0 }, 
-                   { 0, 0, 0, 0, 0, 2, 0, 1, 6 }, 
-                   { 8, 11, 0, 0, 0, 0, 1, 0, 7 }, 
-                   { 0, 0, 2, 0, 0, 0, 6, 7, 0 } }; 
-  
-    //source vertex is 0
-    dijkstra(g,0); 
-	
     return 0;
 }
