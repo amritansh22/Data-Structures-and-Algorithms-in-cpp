@@ -1,70 +1,73 @@
 /*
-Rat in a Maze problem:
-#Backtracking
-Find all paths from source to destination, where some cells are blocked
-
-To store the paths, mark the valid vertices as 1
+Rat in a Maze: algorithm for backtracking, function evaluates all possible paths that connect the top-left corner of a grid to the bottom-right corner.
+Cells marked with 1 may be travelled through, while cells marked 0 are blocked. The rat must avoid blocked cells and cannot revisit cells.
+Function finds ALL possible paths that the rat can take to reach the end of the maze.
 */
 
-#include<iostream>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
-bool ratInaMaze(char maze[10][10], int soln[][10], int i, int j, int m, int n)
-{
-	if (i == m and j == n) {
-		soln[m][n] = 1;
-		//Base case: Found path
-		//Print path
-		for (int i = 0; i <= m; i++) {
-			for (int j = 0; j <= n; j++) {
-				cout << soln[i][j] << " ";
-			}
-			cout << endl;
-		}
-		cout << endl;
-		return true;
-	}
+//Global Variables
+vector<vector<int>> Maze;
+vector<vector<int>> visitedCells;
+vector<string> allPaths;
+int mazeSize;
 
-	if (i > m or j > n) {
-		//out of bounds
-		return false;
-	}
-	if (maze[i][j] == 'X')
-	{
-		//cell is blocked
-		return false;
-	}
-	//Assuming that there is a path through maze[i][j]
-	soln[i][j] = 1;
-	bool rightsuccess = ratInaMaze(maze, soln, i, j + 1, m, n);
-	bool downsuccess = ratInaMaze(maze, soln, i + 1, j, m , n );
+void backtrackMaze(int x, int y, string path) {
+    //Base Case: Rat reaches the end of the Maze (mazeSize-1, mazeSize-1)
+    if (x == mazeSize-1 && y == mazeSize-1) {
+        allPaths.push_back(path);
+        return;
+    }
 
-	//backtracking
-	soln[i][j] = 0;
+    //Directions: Down, Left, Right, Up
+    int dx[] = {1, 0, 0, -1};
+    int dy[] = {0, -1, 1, 0};
+    char dir[] = {'D', 'L', 'R', 'U'};
 
-	if (rightsuccess or downsuccess)
-		return true;
+    //Mark the current cell as visited
+    visitedCells[x][y] = 1;
 
-	return false;
+    //Check each direction
+    for (int i = 0; i < 4; i++) {
+        int newX = x + dx[i];
+        int newY = y + dy[i];
+
+        //Check new cell is in bounds and has not been visited yet
+        if (newX >= 0 && newY >= 0 && newX < mazeSize && newY < mazeSize &&
+            Maze[newX][newY] == 1 && !visitedCells[newX][newY]) {
+            backtrackMaze(newX, newY, path + dir[i]);
+            }
+    }
+
+    //Explore alternative paths by backtracking
+    visitedCells[x][y] = 0;
 }
 
 
-
-
 int main() {
+    Maze = {
+        {1, 0, 0, 0},
+        {1, 1, 0, 1},
+        {0, 1, 0, 0},
+        {1, 1, 1, 1}
+    };
 
-	char maze[10][10] = {
-		"0000",
-		"00X0",
-		"000X",
-		"0X00",
-	};
+    mazeSize = Maze.size();
+    visitedCells.assign(mazeSize, vector<int>(mazeSize, 0));
 
-	int soln[10][10] = {0};
-	int n = 4, m = 4;
-	bool ans = ratInaMaze(maze, soln, 0, 0, m - 1, n - 1);
-	if (!ans)
-		cout << "Path doesn't exist" << endl;
-	return 0;
+    if (Maze[0][0] == 1) {
+        backtrackMaze(0, 0, "");
+    }
 
+    if (allPaths.empty()) {
+        cout << "The rat cannot complete the maze :(" << endl;
+    } else {
+        cout << "All possible paths through the maze:" << endl;
+        for (auto &p : allPaths) cout << p << endl;
+    }
+
+    return 0;
 }
